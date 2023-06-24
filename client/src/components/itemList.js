@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteItem, selectItem } from '../actions';
+import { fetchItemsAsync, deleteItemAsync } from '../redux/thunks';
+import { selectItem } from '../reducers/index';
+
 
 function ItemList() {
     const dispatch = useDispatch();
     const items = useSelector(state => state.items);
 
-    const handleDelete = (index) => {
-        dispatch(deleteItem(index));
+    useEffect(() => {
+        dispatch(fetchItemsAsync());
+    }, [dispatch]);
+    //
+    useEffect(() => {
+        dispatch(fetchItemsAsync());
+    }, [dispatch, items.length]);
+
+    const handleDelete = (id) => {
+        dispatch(deleteItemAsync(id));
     };
 
     const handleSelect = (item) => {
@@ -16,11 +26,11 @@ function ItemList() {
 
     return (
         <div className="ItemList">
-            {items.map((item, index) => (
-                <div key={index} className="item">
+            {items.map((item) => (
+                <div key={item.id} className="item">
                     <h2 onClick={() => handleSelect(item)}>{item.name}</h2>
                     <img src={item.image} alt={item.name} onClick={() => handleSelect(item)} />
-                    <button onClick={() => handleDelete(index)}>Delete</button>
+                    <button onClick={() => handleDelete(item.id)}>Delete</button>
                 </div>
             ))}
         </div>
@@ -28,4 +38,3 @@ function ItemList() {
 }
 
 export default ItemList;
-

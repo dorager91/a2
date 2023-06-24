@@ -1,8 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchItemByIdAsync } from '../redux/thunks';
 
 function ItemDetail() {
+    const dispatch = useDispatch();
     const selectedItem = useSelector(state => state.selectedItem);
+
+    useEffect(() => {
+        if (selectedItem && selectedItem.id) {
+            dispatch(fetchItemByIdAsync(selectedItem.id));
+        }
+    }, [dispatch, selectedItem]);
 
     // If no item is selected, don't render the component
     if (!selectedItem) {

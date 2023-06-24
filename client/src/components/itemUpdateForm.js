@@ -1,26 +1,38 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addItemAsync } from '../redux/thunks';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateItemAsync } from '../redux/thunks';
 
-function ItemForm() {
+function ItemUpdateForm() {
     const dispatch = useDispatch();
+    const selectedItem = useSelector(state => state.selectedItem);
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
 
+    useEffect(() => {
+        if (selectedItem) {
+            setName(selectedItem.name);
+            setDescription(selectedItem.description);
+            setPrice(selectedItem.price);
+            setImage(selectedItem.image);
+        }
+    }, [selectedItem]);
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const item = {
+        const updatedItem = {
+            id: selectedItem.id,
             name,
             description,
-            price: parseFloat(price),
+            price: Number(price),  // Ensure price is sent as a number
             image
         };
 
-        dispatch(addItemAsync(item));
+        console.log(updatedItem);
+        dispatch(updateItemAsync(updatedItem));
 
         // clear form fields
         setName("");
@@ -30,7 +42,7 @@ function ItemForm() {
     }
 
     return (
-        <div className="ItemForm">
+        <div className="ItemUpdateForm">
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
@@ -52,13 +64,11 @@ function ItemForm() {
                     <input type="url" value={image} onChange={e => setImage(e.target.value)} required />
                 </label>
                 <br />
-                <button type="submit">Add Item</button>
+                <button type="submit">Update Item</button>
                 <button type="reset" onClick={() => {setName(""); setDescription(""); setPrice(""); setImage("");}}>Clear</button>
             </form>
         </div>
     );
 }
 
-export default ItemForm;
-
-
+export default ItemUpdateForm;

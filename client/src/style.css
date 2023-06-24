@@ -57,6 +57,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .ItemDetail {
     background-color: #a6e3e9; /* Light baby blue */
     padding: 20px;
@@ -67,4 +68,34 @@ body {
 .ItemDetail h2,
 .ItemDetail p {
     margin: 10px 0;
+}
+
+.ItemUpdateForm {
+    background-color: #eee; /* Light grey */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.ItemFilterForm {
+    background-color: #f7e1d9; /* Light brown */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.ItemUpdateForm input,
+.ItemUpdateForm button,
+.ItemFilterForm input,
+.ItemFilterForm button {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.ItemUpdateForm button,
+.ItemFilterForm button {
+    cursor: pointer;
 }

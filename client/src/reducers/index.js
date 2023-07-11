@@ -31,11 +31,11 @@ const itemsSlice = createSlice({
                 state.items.push(action.payload);
             })
             .addCase(deleteItemAsync.fulfilled, (state, action) => {
-                state.items = state.items.filter(item => item.id !== action.payload[0].id);
+                state.items = state.items.filter(item => item._id !== action.payload._id);
             })
             .addCase(updateItemAsync.fulfilled, (state, action) => {
                 console.log(action.payload);
-                const index = state.items.findIndex(item => item.id === action.payload.id);
+                const index = state.items.findIndex(item => item._id === action.payload._id);
                 if (index !== -1) {
                     console.log(action.payload);
                     state.items[index] = action.payload;

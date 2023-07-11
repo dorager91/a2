@@ -29,6 +29,7 @@ const fetchItemById = async (id) => {
 };
 
 const addItem = async (item) => {
+    console.log(item);
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -48,7 +49,7 @@ const addItem = async (item) => {
 };
 
 const updateItem = async (item) => {
-    const response = await fetch(url + item.id, {
+    const response = await fetch(url + item._id, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

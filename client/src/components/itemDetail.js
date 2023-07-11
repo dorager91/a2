@@ -7,8 +7,8 @@ function ItemDetail() {
     const selectedItem = useSelector(state => state.selectedItem);
 
     useEffect(() => {
-        if (selectedItem && selectedItem.id) {
-            dispatch(fetchItemByIdAsync(selectedItem.id));
+        if (selectedItem && selectedItem._id) {
+            dispatch(fetchItemByIdAsync(selectedItem._id));
         }
     }, [dispatch, selectedItem]);
 

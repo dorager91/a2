@@ -7,11 +7,8 @@ import { selectItem } from '../reducers/index';
 function ItemList() {
     const dispatch = useDispatch();
     const items = useSelector(state => state.items);
+    console.log(items);
 
-    useEffect(() => {
-        dispatch(fetchItemsAsync());
-    }, [dispatch]);
-    //
     useEffect(() => {
         dispatch(fetchItemsAsync());
     }, [dispatch, items.length]);
@@ -27,10 +24,10 @@ function ItemList() {
     return (
         <div className="ItemList">
             {items.map((item) => (
-                <div key={item.id} className="item">
+                <div key={item._id} className="item">
                     <h2 onClick={() => handleSelect(item)}>{item.name}</h2>
                     <img src={item.image} alt={item.name} onClick={() => handleSelect(item)} />
-                    <button onClick={() => handleDelete(item.id)}>Delete</button>
+                    <button onClick={() => handleDelete(item._id)}>Delete</button>
                 </div>
             ))}
         </div>

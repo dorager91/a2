@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItemAsync } from '../redux/thunks';
 
-function ItemForm() {
+function ItemAddForm() {
     const dispatch = useDispatch();
 
     const [name, setName] = useState("");
@@ -17,7 +17,7 @@ function ItemForm() {
             name,
             description,
             price: parseFloat(price),
-            image
+            image: image
         };
 
         dispatch(addItemAsync(item));
@@ -59,6 +59,6 @@ function ItemForm() {
     );
 }
 
-export default ItemForm;
+export default ItemAddForm;
 
 

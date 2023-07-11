@@ -24,7 +24,7 @@ function ItemUpdateForm() {
         event.preventDefault();
 
         const updatedItem = {
-            id: selectedItem.id,
+            _id: selectedItem._id,
             name,
             description,
             price: Number(price),  // Ensure price is sent as a number

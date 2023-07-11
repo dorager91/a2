@@ -1,0 +1,101 @@
+/* CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5dc; /* Creamy white */
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+}
+
+/* Item Form styling */
+.ItemForm {
+    background-color: #ffc1de; /* Light pink */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.ItemForm input,
+.ItemForm button {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.ItemForm button {
+    cursor: pointer;
+}
+
+/* Individual Item styling */
+.ItemList .item {
+    background-color: #b2d8b2; /* Matcha green */
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    position: relative;
+}
+
+.ItemList .item h2 {
+    cursor: pointer;
+}
+
+.ItemList .item button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #f00;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ItemDetail {
+    background-color: #a6e3e9; /* Light baby blue */
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.ItemDetail h2,
+.ItemDetail p {
+    margin: 10px 0;
+}
+
+.ItemUpdateForm {
+    background-color: #eee; /* Light grey */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.ItemFilterForm {
+    background-color: #f7e1d9; /* Light brown */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.ItemUpdateForm input,
+.ItemUpdateForm button,
+.ItemFilterForm input,
+.ItemFilterForm button {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.ItemUpdateForm button,
+.ItemFilterForm button {
+    cursor: pointer;
+}

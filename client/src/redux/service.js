@@ -82,4 +82,4 @@ const deleteItem = async (id) => {
     return data;
 };
 
-module.exports = { fetchItems, fetchItemById, addItem, updateItem, deleteItem };
+export default { fetchItems, fetchItemById, addItem, updateItem, deleteItem };

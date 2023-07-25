@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as DataService from './service';
+import DataService from './service';
 
 export const fetchItemsAsync = createAsyncThunk(
     "items/fetchItems",

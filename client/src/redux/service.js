@@ -1,4 +1,4 @@
-const url = 'http://localhost:4000/items/';
+const url = 'https://backend-dwtm.onrender.com/items/';
 
 const fetchItems = async (filters = {}) => {
     // Convert filters object into query string
